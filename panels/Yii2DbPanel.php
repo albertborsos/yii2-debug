@@ -67,7 +67,7 @@ class Yii2DbPanel extends Yii2DebugPanel
 		$items = array();
 		foreach ($this->calculateTimings() as $timing) {
 			$items[] = array(
-				'time' => date('H:i:s.', $timing[3]) . sprintf('%03d', (int)(($timing[3] - (int)$timing[3]) * 1000)),
+				'time' => date('H:i:s.', (int)$timing[3]) . sprintf('%03d', (int)(($timing[3] - (int)$timing[3]) * 1000)),
 				'duration' => sprintf('%.1f ms', $timing[4] * 1000),
 				'procedure' => $this->formatSql($timing[1], $this->insertParamValues),
 			);
